@@ -1,4 +1,3 @@
-
 import SideBar from "../components/SideBar";
 import { SessionProvider } from "../components/SessionProvider";
 import { getServerSession } from 'next-auth';
@@ -17,7 +16,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const session = await getServerSession(authOptions);
-  console.log(session);
 
   return (
     <html lang="en">
