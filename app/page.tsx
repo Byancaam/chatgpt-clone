@@ -1,19 +1,19 @@
 import '../styles/globals.css';
-import { SunIcon,BoltIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { SunIcon, BoltIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 import React from 'react';
 
-interface HomepageProps {}
+interface HomepageProps { }
 
 const HomePage: React.FC<HomepageProps> = () => {
   return (
     <div className='flex flex-col items-center justify-center h-screen text-white'>
-      <h1 className='text-5xl font-bold mb-20 '>ChatGPT </h1>
+      <h1 className='text-5xl font-bold mb-20 '>ChatGPT</h1>
 
       <div className='flex space-x-2 text-center'>
         <div>
           <div className='flex flex-col items-center justify-center mb-5'>
-            <SunIcon className='h-8 w-8   '/>
+            <SunIcon className='h-8 w-8   ' />
             <h2>Examples</h2>
           </div>
 
@@ -28,7 +28,7 @@ const HomePage: React.FC<HomepageProps> = () => {
 
         <div>
           <div className='flex flex-col items-center justify-center mb-5'>
-            <BoltIcon className='h-8 w-8   '/>
+            <BoltIcon className='h-8 w-8   ' />
             <h2>Capabilities</h2>
           </div>
 
@@ -43,7 +43,7 @@ const HomePage: React.FC<HomepageProps> = () => {
 
         <div>
           <div className='flex flex-col items-center justify-center mb-5'>
-            <ExclamationTriangleIcon className='h-8 w-8   '/>
+            <ExclamationTriangleIcon className='h-8 w-8   ' />
             <h2>Limitations</h2>
           </div>
 
