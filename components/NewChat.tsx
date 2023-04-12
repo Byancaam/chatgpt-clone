@@ -4,7 +4,7 @@ import { db } from '@/firebase';
 import { PlusIcon } from '@heroicons/react/24/solid';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'; // atenção pq no next12 era next/router
 
 function NewChat() {
   const router = useRouter();
@@ -13,12 +13,12 @@ function NewChat() {
   const createNewChat = async () => {
     const doc = await addDoc(
       collection(db, "users", session?.user?.email!, "chats"), {
-        userId: session?.user?.email!,
-        creadedAt: serverTimestamp()
-      }
+      userId: session?.user?.email!,
+      creadedAt: serverTimestamp()
+    }
     );
 
-    router.push(`/chat/${doc.id}`)
+    router.push(`/chat/${doc.id}`);
 
   };
 
