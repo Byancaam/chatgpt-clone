@@ -1,18 +1,17 @@
-'use client';
+"use client";
 
-import { useSession, signOut } from 'next-auth/react';
-import { useCollection } from 'react-firebase-hooks/firestore';
-import { collection, query } from 'firebase/firestore';
-import { db } from '@/firebase';
-import NewChat from './NewChat';
-import ChatRow from './ChatRow';
+import { useSession, signOut } from "next-auth/react";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection, query } from "firebase/firestore";
+import { db } from "@/firebase";
+import NewChat from "./NewChat";
+import ChatRow from "./ChatRow";
 
 function SideBar() {
   const { data: session } = useSession();
 
-
   const [chats, loading, error] = useCollection(
-    session && query(collection(db, 'users', session.user?.email!, 'chats'))
+    session && query(collection(db, "users", session.user?.email!, "chats"))
   );
 
   return (
@@ -21,26 +20,24 @@ function SideBar() {
         <div>
           <NewChat />
 
-          <div>
-            {/**Model Selection */}
-          </div>
+          <div>{/**Model Selection */}</div>
 
           {/**Map through the CharTows */}
-          { chats?.docs.map( chat => (
+          {chats?.docs.map((chat) => (
             <ChatRow key={chat.id} id={chat.id} />
           ))}
         </div>
       </div>
 
-      {
-        session &&
+      {session && (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           onClick={() => signOut()}
           className="w-12 h-12 rounded-full cursor-pointer mx-auto mb-2 hover:opacity-50"
           src={session.user?.image!}
-          alt='Profile picture' />
-      }
+          alt="Profile picture"
+        />
+      )}
     </div>
   );
 }
