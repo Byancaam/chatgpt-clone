@@ -1,8 +1,13 @@
-import React from 'react';
+import ChatPage from "@/components/ChatPage";
+import React from "react";
 
 function chatPage() {
   return (
-    <div>ChatPage</div>
+    <ChatPage
+      params={{
+        id: "",
+      }}
+    />
   );
 }
 
